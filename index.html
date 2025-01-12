@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora de IMC</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Calculadora de IMC</h1>
+        <form class="imc-form">
+            <label for="peso">Peso (Kg)</label>
+            <input type="number" class="peso" required step="0.1">
+
+            <label for="altura">Altura (m)</label>
+            <input type="number" class="altura" required step="0.01">
+            <div class="botoes">
+            <button class="btn-confirmar" type="submit">Calcular IMC</button>
+            <button class="btn-limpar" type="button">Limpar</button>
+            </div>
+        </form>
+        <p id="resultado"></p>
+         <!-- Link para a seção de FAQ -->
+         <div class="faq-link">
+            <button class="btn-ajuda" onclick="toggleFAQ()">Ajuda / FAQ</button>
+        </div>
+
+             <!-- Seção FAQ oculta inicialmente -->
+             <div class="faq-section" style="display: none;">
+                <h2>FAQ - Perguntas Frequentes</h2>
+                <ul>
+                    <li><strong>O que é IMC?</strong> O IMC (Índice de Massa Corporal) é uma medida usada para avaliar o peso em relação à altura de uma pessoa. Ele é usado para identificar possíveis problemas de peso, como obesidade ou desnutrição.</li>
+                    <li><strong>Como o IMC é calculado?</strong> O IMC é calculado dividindo o peso da pessoa (em kg) pela altura ao quadrado (em metros). A fórmula é: IMC = peso / (altura * altura).</li>
+                    <li><strong>Qual é a faixa normal de IMC?</strong> O IMC considerado saudável está entre 18,5 e 24,9. Acima disso, é considerado sobrepeso, e abaixo disso, abaixo do peso.</li>
+                    <li><strong>O IMC é aplicável para todas as pessoas?</strong> Não, o IMC não é uma medida precisa para todos os tipos de corpo. Ele não leva em consideração a massa muscular ou a distribuição de gordura.</li>
+                </ul>
+            </div>
+
+    </div>
+    <script>
+  document.querySelector('.imc-form').addEventListener('submit', function(event) {
+  event.preventDefault(); // Impede o envio do formulário e recarregamento da página
+
+  const peso = parseFloat(document.querySelector('.peso').value); // Obtém o peso e converte para número
+  const altura = parseFloat(document.querySelector('.altura').value); // Obtém a altura e converte para número
+
+  if (peso > 0 && altura > 0) { // Verifica se os valores inseridos são válidos
+    const imc = (peso / (altura * altura)).toFixed(2); // Calcula o IMC com 2 casas decimais
+    let classificacao = ''; // Variável para armazenar a classificação do IMC
+
+    // Define a classificação do IMC com base no valor calculado
+    if (imc < 18.5) {
+      classificacao = 'Abaixo do peso';
+    } else if (imc >= 18.5 && imc <= 24.9) {
+      classificacao = 'Peso normal';
+    } else if (imc >= 25 && imc <= 29.9) {
+      classificacao = 'Sobrepeso';
+    } else {
+      classificacao = 'Obesidade';
+    }
+
+            // Exibe o resultado e a classificação no parágrafo com id 'resultado'
+    document.getElementById('resultado').textContent = `Seu IMC é ${imc} (${classificacao}).`;
+    resultado.classList.add('res');
+  } else {
+            // Caso valores inválidos sejam inseridos
+    document.getElementById('resultado').textContent = 'Por favor, insira valores válidos.';
+
+  }
+});
+            // Adiciona um evento para o botão de "Limpar"
+    document.querySelector('.btn-limpar').addEventListener('click',function(){
+            // Limpa os campos de entrada
+    document.querySelector('.peso').value = '';
+    document.querySelector('.altura').value = '';
+            // Limpa o resultado do IMC
+    document.getElementById('resultado').textContent = '';
+            // Remove qualquer classe de cor do resultado (caso tenha sido aplicado)
+    document.getElementById('resultado').classList.remove('res');
+
+    });
+// Função para exibir/ocultar a seção de FAQ
+    function toggleFAQ() {
+            const faqSection = document.querySelector('.faq-section');
+            faqSection.style.display = (faqSection.style.display === 'none' || faqSection.style.display === '') ? 'block' : 'none';
+        }
+
+    </script>
+</body>
+</html>

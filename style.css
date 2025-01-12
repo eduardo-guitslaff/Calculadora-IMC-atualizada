@@ -1,0 +1,83 @@
+body{
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+}
+.container {
+    max-width: 400px; /* Define a largura máxima do container */
+    margin: 50px auto; /* Centraliza horizontalmente e define espaço superior */
+    padding: 20px;
+    background: white; /* Cor de fundo branca para o container */
+    border-radius: 10px; /* Bordas arredondadas */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Sombra ao redor do container */
+  }
+  h1{
+    text-align: center;
+    color:rgb(13, 100, 71) ;
+  }
+  form {
+    display: flex;
+    flex-direction: column; /* Organiza os elementos do formulário verticalmente */
+    gap: 15px; /* Espaçamento entre os elementos */
+  }
+  
+  label{
+    width: 100%;
+    align-items: center;
+    text-align: center;
+    
+  }
+input{
+    width: 90%;
+    padding: 10px;
+    border: solid 0.5px rgba(187, 187, 187, 0.644);
+    border-radius: 7px;
+    
+}
+.peso{
+    margin-bottom: 4%;
+}
+.botoes{
+  display: flex;
+  gap: 5%;
+}
+.btn-confirmar{
+    width: 45%;
+    padding: 13px;
+    background-color: rgb(18, 138, 98);
+    border: solid 1px rgb(18, 138, 98);
+    border-radius: 7px;
+    color: aliceblue;
+}
+.btn-confirmar:hover{
+    background-color: rgb(13, 100, 71);
+    border: solid 1px rgb(13, 100, 71) ;
+    cursor: pointer; 
+   
+}
+.btn-limpar{
+  width: 45%;
+  padding: 13px;
+  background-color: rgb(209, 10, 10);
+  border: solid 1px rgb(209, 10, 10);
+  border-radius: 7px;
+  color: aliceblue;
+}
+.btn-limpar:hover{
+  background-color: rgb(97, 7, 19);
+  border: solid 1px rgb(97, 7, 19) ;
+  cursor: pointer; 
+}
+.res{
+
+width: 100%;
+text-align: center;
+}
+.btn-ajuda{
+  border-radius: 4px;
+  border: solid 0.5px black;
+}
+.btn-ajuda:hover{
+  background-color: rgb(235, 233, 233);
+  cursor: pointer;
+}
